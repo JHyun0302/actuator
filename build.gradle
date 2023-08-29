@@ -38,6 +38,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+// 빌드 정보 추가
 springBoot {
     buildInfo()
 }
