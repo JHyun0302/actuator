@@ -39,4 +39,31 @@
 
     - HTTP 요청 응답 기록
         - `ActuatorApplication` 참고
-                
+
+    - **tag 필터 : 더 자세한 항목 검색**
+        - '힙 메모리 영역' : `http://localhost:8080/actuator/metrics/jvm.memory.used?tag=area:heap`
+        - '/log 요청만 필터' : `http://localhost:8080/actuator/metrics/http.server.requests?tag=uri:/log`
+
+    - JVM 메트릭
+        - `jvm.` 으로 시작
+
+    - 시스템 메트릭
+        - `system.`, `process.`, `disk.`으로 시작
+
+    - 애플리케이션 시작 메트릭
+        - `ApplicationStartedEvent` : 스프링 컨테이너가 완전히 실행된 상태. 이후에 케맨드 라인 러너 호출
+            - 스프링 띄우는데 걸리는 시간
+        - `ApplicationReadyEvent` : 커맨드 라인 러너 실행된 이후에 호출
+            - 스프링 띄우고 init 데이터 등 처음 설정한 메서드 실행된 상태.
+
+    - 스프링 MVC 메트릭
+        - `http.server.requests` 으로 시작
+
+    - 데이터소스 메트릭
+        - `jdbc.connections.`으로 시작
+
+    - 로그 메트릭
+        - `logback.events`으로 시작
+      
+    - 톰캣 메트릭
+        - `tomcat.` 으로 시작 
