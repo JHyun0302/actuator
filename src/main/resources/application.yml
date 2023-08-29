@@ -1,0 +1,40 @@
+#  'endpoints' 설정
+#  1. 엔드포인트 활성화 (on or off) : 대부분은 활성화 상태 (`shutdown` 제외 : 서버 꺼짐)
+#  2. 엔드포인트 노출 (HTTP or JMX 노출 위치 지정)
+#  "엔드포인트 활성화 + 노출 = 사용 가능"
+
+#액츄에이터 모든 기능("*") 웹 사이트에 노출
+management:
+  info: #management 바로 아래 info:...
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env: #외부 설정 보임 (info.app.company)
+      enabled: true
+
+  server: #시나리오 : 외부 서버 : 8080 (액츄에이터 노출 X), 내부 서버 : 9292 (액츄에이터 노출 O)
+  #    port: 9292
+
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always #헬스 컴포넌트 중 하나라도 'Down' 상태이면 전체 상태 = 'Down'
+  
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: hello-actuator
+    company: jh
+
+logging:
+  level:
+    hello.controller: debug
+
+
+
