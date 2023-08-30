@@ -98,6 +98,6 @@
     - Timer 등록 :  `@Timed("metric name")`
         - 주의 : `TimeAspect` 빈으로 등록해야 AOP 작동함
 
-    - Gauge 등록 : `MeterBinder` 사용_
+    - Gauge 등록 : `MeterBinder` 사용
 
 
