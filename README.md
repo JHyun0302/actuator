@@ -88,3 +88,16 @@
     - **게이지** : 값이 계속 변하는 게이지는 현재 값을 그대로 그래프로 표현
     - **카운터** : 값이 단조롭게 증가하는 카운터는 increase() , rate() 등을 사용해서 표현 (특정 시간에 고객 요청이 얼마나 들어온지 파악)
 
+  **그라파나**
+    - `프로메테우스`의 레이블 읽어 시각화된 그래프로 보여줌
+      _- 다양한 대시보드 소스 : `https://grafana.com/grafana/dashboards/4701-jvm-micrometer/`
+
+  **사용자 정의 메트릭**
+    - counter 등록 : `@Counted("metric name")`
+        - 주의 : `CountedAspect` 빈으로 등록해야 AOP 작동함
+    - Timer 등록 :  `@Timed("metric name")`
+        - 주의 : `TimeAspect` 빈으로 등록해야 AOP 작동함
+
+    - Gauge 등록 : `MeterBinder` 사용_
+
+
